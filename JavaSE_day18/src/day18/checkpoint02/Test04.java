@@ -15,23 +15,23 @@ import java.util.Set;
  * */
 public class Test04 {
   public static void main(String[] args) throws IOException {
-    Properties properties =new Properties();
+    Properties properties = new Properties();
     FileInputStream fis = new FileInputStream("score.txt");
     //获取文件里面的属性键值对
     properties.load(fis);
     Set<String> set = properties.stringPropertyNames();
     for (String key : set) {
 //      System.out.println(key+"="+properties.get(key));
-      if (key.equals("lisi")){
+      if (key.equals("lisi")) {
         System.out.println("存在lisi的key，修改文件");
         //设置lisha
-        properties.setProperty(key,"100");
+        properties.setProperty(key, "100");
 
-        set=properties.stringPropertyNames();
+        set = properties.stringPropertyNames();
         //重写写入文件
         FileOutputStream fileOutputStream = new FileOutputStream("score.txt");
         for (String s : set) {
-          fileOutputStream.write((s+"="+properties.get(s)+"\r\n").getBytes());
+          fileOutputStream.write((s + "=" + properties.get(s) + "\r\n").getBytes());
         }
       }
     }

@@ -14,7 +14,7 @@ public class Test06 {
     FileOutputStream fos = new FileOutputStream("copy_img.png");
     int read;
     //一个字节的操作
-    while ((read=fis.read())!=-1){
+    while ((read = fis.read()) != -1) {
       fos.write(read);
     }
     //关闭流

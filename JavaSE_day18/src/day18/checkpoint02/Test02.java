@@ -15,7 +15,7 @@ public class Test02 {
     File file2 = new File("D:\\Test\\test");
     //开始拷贝文件
     System.out.println("开始拷贝文件");
-    forEachFile(file,file2);
+    forEachFile(file, file2);
   }
 
   public static void forEachFile(File dir1, File dir2) throws IOException {
@@ -25,7 +25,7 @@ public class Test02 {
     //遍历文件夹
     for (File file : files) {
       if (file.isFile()) {
-        System.out.println("开始拷贝"+file.getName()+"到"+dir2.getAbsolutePath());
+        System.out.println("开始拷贝" + file.getName() + "到" + dir2.getAbsolutePath());
         //拷贝文件
         FileInputStream fis = new FileInputStream(file);
         FileOutputStream fos = new FileOutputStream(dir2.getAbsolutePath() + "\\" + file.getName());
@@ -37,7 +37,7 @@ public class Test02 {
         fos.close();
       } else if (file.isDirectory()) {
         //递归遍历文件夹和拷贝
-        forEachFile(file,dir2);
+        forEachFile(file, dir2);
       }
     }
   }
