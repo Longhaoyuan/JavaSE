@@ -32,6 +32,7 @@ public class Test04 {
       }
     }
     Set<String> set = properties.stringPropertyNames();
+
     for (String key : set) {
 //      System.out.println(key+"="+properties.get(key));
       if (key.equals("lisi")) {
