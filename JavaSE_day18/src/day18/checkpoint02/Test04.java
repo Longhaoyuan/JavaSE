@@ -14,11 +14,23 @@ import java.util.Set;
  * 5. 把集合中所有的信息 ，重新存储到文件中
  * */
 public class Test04 {
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) {
     Properties properties = new Properties();
-    FileInputStream fis = new FileInputStream("score.txt");
-    //获取文件里面的属性键值对
-    properties.load(fis);
+    FileInputStream fis = null;
+    try {
+      fis = new FileInputStream("score.txt");
+      //获取文件里面的属性键值对
+      properties.load(fis);
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (fis!=null)
+          fis.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
     Set<String> set = properties.stringPropertyNames();
     for (String key : set) {
 //      System.out.println(key+"="+properties.get(key));
@@ -29,9 +41,21 @@ public class Test04 {
 
         set = properties.stringPropertyNames();
         //重写写入文件
-        FileOutputStream fileOutputStream = new FileOutputStream("score.txt");
-        for (String s : set) {
-          fileOutputStream.write((s + "=" + properties.get(s) + "\r\n").getBytes());
+        FileOutputStream fileOutputStream = null;
+        try {
+          fileOutputStream = new FileOutputStream("score.txt");
+          for (String s : set) {
+            fileOutputStream.write((s + "=" + properties.get(s) + "\r\n").getBytes());
+          }
+        } catch (IOException e) {
+          e.printStackTrace();
+        } finally {
+          try {
+            if (fileOutputStream!=null)
+              fileOutputStream.close();
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
         }
       }
     }

@@ -25,7 +25,7 @@ public class Test01 {
     forEachFile(oldfile, targt);
   }
 
-  public static void forEachFile(File dir1, File dir2) throws IOException {
+  public static void forEachFile(File dir1, File dir2){
     //文件过滤
     File[] files = dir1.listFiles(n -> {
       return n.getName().endsWith("java") || n.isDirectory();
@@ -38,29 +38,40 @@ public class Test01 {
       if (file.isFile()) {
         System.out.println("开始拷贝" + file.getName() + "到" + dir2.getAbsolutePath());
         //拷贝文件
-        FileInputStream fis = new FileInputStream(file);
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
         File f = new File(dir2.getAbsolutePath() + "\\" + file.getName());
-
-        FileOutputStream fos;
-        //文件存在
-        if (f.exists()) {
-          if (i <= 1)
-            fos = new FileOutputStream(dir2.getAbsolutePath() + "\\" +
-              file.getName().split(".java")[0] + "-副本.java");
-          else
-            fos = new FileOutputStream(dir2.getAbsolutePath() + "\\" +
-              file.getName().split(".java")[0] + "-副本(" + i + ").java");
-          i++;
-        } else {
-          //文件不存在，则直接创建
-          fos = new FileOutputStream(f);
+        try {
+          fis = new FileInputStream(file);
+          //文件存在
+          if (f.exists()) {
+            if (i <= 1)
+              fos = new FileOutputStream(dir2.getAbsolutePath() + "\\" +
+                file.getName().split(".java")[0] + "-副本.java");
+            else
+              fos = new FileOutputStream(dir2.getAbsolutePath() + "\\" +
+                file.getName().split(".java")[0] + "-副本(" + i + ").java");
+            i++;
+          } else {
+            //文件不存在，则直接创建
+            fos = new FileOutputStream(f);
+          }
+          while ((len = fis.read(b)) != -1) {
+            fos.write(b, 0, len);
+          }
+        } catch (IOException e) {
+          e.printStackTrace();
+        } finally {
+          //关闭IO流
+          try {
+            if (fos!=null)
+            fos.close();
+            if (fis!=null)
+            fis.close();
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
         }
-        while ((len = fis.read(b)) != -1) {
-          fos.write(b, 0, len);
-        }
-        //关闭IO流
-        fis.close();
-        fos.close();
       } else if (file.isDirectory()) {
         //递归遍历文件夹和拷贝
         forEachFile(file, dir2);

@@ -12,27 +12,39 @@ import java.util.Map;
  * 方法传入a后，方法内部输出：a出现10次
  * */
 public class Test03 {
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args){
     File file = new File("test.txt");
     printTestChar(file);
   }
 
-  public static void printTestChar(File file) throws IOException {
-    FileInputStream fis = new FileInputStream(file);
+  public static void printTestChar(File file) {
     Map<Character, Integer> map = new HashMap<>();
     int num;
-    while ((num = fis.read()) != -1) {
-      char s = (char) num;
-      if (map.get(s) == null) {
-        map.put(s, 1);
-      } else {
-        map.put(s, map.get(s) + 1);
+    FileInputStream fis = null;
+    try {
+      fis = new FileInputStream(file);
+      while ((num = fis.read()) != -1) {
+        char s = (char) num;
+        if (map.get(s) == null) {
+          map.put(s, 1);
+        } else {
+          map.put(s, map.get(s) + 1);
+        }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      //关闭流
+      try {
+        if (fis!=null){
+          fis.close();
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
       }
     }
     map.forEach((k, v) -> {
       System.out.println(k + "出现" + v + "次");
     });
-    //关闭流
-    fis.close();
   }
 }

@@ -27,5 +27,7 @@ public class Test01 {
         str = scanner.next();
       }
     }
+    if (fos!=null)
+      fos.close();
   }
 }

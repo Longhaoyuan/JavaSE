@@ -9,11 +9,23 @@ import java.io.IOException;
  * 2.调用字节输出流的write(int byte)方法写出数据
  * */
 public class Test01 {
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args){
    /* File file = new File("a.txt");
     System.out.println(file.getAbsolutePath());*/
-    FileOutputStream fos = new FileOutputStream("a.txt");
-    fos.write(97);
-    fos.close();
+    FileOutputStream fos = null;
+    try {
+      fos = new FileOutputStream("a.txt");
+      fos.write(97);
+    }  catch (IOException e) {
+      e.printStackTrace();
+    }finally {
+      if (fos!=null) {
+        try {
+          fos.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
   }
 }
