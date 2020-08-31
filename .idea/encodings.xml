@@ -387,16 +387,25 @@
     <file url="file://$PROJECT_DIR$/JavaSE_day19/src/day19/Test12.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaSE_day19/src/day19/entities/Student.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaSE_day19/src/demo/Test01.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day19/src/demo/Test02.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaSE_day19/src/demo/entities/Employee.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient01/Client.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient01/Server.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient02/Client.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient02/Server.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient03/FileUpLoadClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient03/FileUpLoadServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient04/ResigestClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient04/ResigestServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient06/Client.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaSE_day20/src/day20/serverandclient06/Server.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/a.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/b.txt" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/c.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/c.txt" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/d.txt" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/data.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/e.txt" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/score.txt" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/t.txt" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/test.txt" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/text.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../MyWeb/src/controller/HelloServlet.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../MyWeb/src/dao/TestDao.java" charset="UTF-8" />
