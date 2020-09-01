@@ -6,9 +6,10 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+
 /*
-* Test08
-* */
+ * Test08
+ * */
 public class Client {
   public static void main(String[] args) throws IOException {
     Socket socket = new Socket("127.0.0.1", 8888);
@@ -29,10 +30,12 @@ public class Client {
     Future<?> submit = service.submit(new Runnable() {
       @Override
       public void run() {
+        String s;
         while (true) {
           try {
-            String s = scanner.nextLine();
-            bw.write(s + "\n");
+            s = scanner.nextLine();
+            bw.write(s);
+            bw.newLine();
             bw.flush();
             if ("exit".equals(s.trim()))
               break;
@@ -63,7 +66,7 @@ public class Client {
                 socket.close();
                 break;
               }
-              System.out.println(br.readLine());
+              System.out.println("服务端说：" + str);
             }
           } catch (IOException e) {
             e.printStackTrace();

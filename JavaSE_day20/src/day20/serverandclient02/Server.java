@@ -7,7 +7,9 @@ import java.util.Scanner;
 import java.util.concurrent.*;
 /*
 *
-* Test08
+* Test06
+*   使用TCP协议实现客户端和服务端互相发送消息。 客户端发送一条消息，服务器读取之后，
+*   返回一条消息给客户端，客户端读取服务器返回的消息之后，又发送一条 消息…循环执行，直到输入exit。
 * */
 public class Server {
   public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
@@ -48,7 +50,7 @@ public class Server {
                 inputStream.close();
                 accept.close();*/
               } else {
-                System.out.println(str);
+                System.out.println("客户端说："+str);
               }
             }
           } catch (IOException e) {

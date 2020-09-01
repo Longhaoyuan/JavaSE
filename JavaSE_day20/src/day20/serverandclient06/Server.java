@@ -8,6 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /*
+* Test09
 * 编写一个TCP的服务端，可以接受多个客户端的连接，当接收到用户的连接请求以后，就要把一张图片传回给客户 端。
 * */
 public class Server {
