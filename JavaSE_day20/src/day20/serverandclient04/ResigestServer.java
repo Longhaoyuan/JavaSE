@@ -32,7 +32,7 @@ public class ResigestServer {
           while ((str = br.readLine()) != null) {
             String[] split = str.split("\\=");
             if (map.containsKey(split[0])) {
-              if (map.containsValue(split[1])) {
+              if (split[1].equals(map.get(split[0]))) {//比对密码
                 bw.write("用户登陆成功");
                 bw.flush();
                 bw.close();

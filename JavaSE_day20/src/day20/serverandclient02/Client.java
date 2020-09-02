@@ -6,10 +6,9 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
 /*
- * Test08
- * */
+* Test08
+* */
 public class Client {
   public static void main(String[] args) throws IOException {
     Socket socket = new Socket("127.0.0.1", 8888);
@@ -33,12 +32,14 @@ public class Client {
         String s;
         while (true) {
           try {
-            s = scanner.nextLine();
-            bw.write(s);
+             s= scanner.nextLine();
+            bw.write(s );
             bw.newLine();
             bw.flush();
-            if ("exit".equals(s.trim()))
+            if ("exit".equals(s.trim())) {
+              System.out.println("退出");
               break;
+            }
           } catch (IOException e) {
             e.printStackTrace();
           }
@@ -64,9 +65,10 @@ public class Client {
                 outputStream.close();
                 service.shutdown();
                 socket.close();
+                System.exit(1);
                 break;
               }
-              System.out.println("服务端说：" + str);
+              System.out.println("客户端说："+str);
             }
           } catch (IOException e) {
             e.printStackTrace();
